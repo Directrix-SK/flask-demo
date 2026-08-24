@@ -1,1 +1,0 @@
-web: gunicorn tut_flasc:app

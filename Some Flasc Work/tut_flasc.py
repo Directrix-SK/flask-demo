@@ -18,5 +18,20 @@ def admin():
 @app.route("/RUHAAN")
 def ruhaan():
     return render_template("Ruhaan.html")
+@app.route("/SAMPADA")
+def sampada():
+    return render_template("Sampada.html")
+@app.route("/NAVYA")
+def navya():
+    return render_template("Navya.html")
+@app.route("/SARTHAK")
+def sarthak():
+    return render_template("Sarthak.html")
+@app.route("/RIDDHIMA")
+def riddhima():
+    return render_template("Riddhima.html")
+@app.route("/KAUSHIK")
+def kaushik():
+    return render_template("Kaushik.html")
 if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 5000, debug=True)
