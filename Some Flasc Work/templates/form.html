@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup Form</title>
+    </head>
+    <body bgcolor="lavender">
+        <font color="red">
+            <h1>LOGIN PAGE</h1>
+        </font>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p>{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/login" method="POST">
+            <label>Username:</label>
+            <input type="text" name = "username" placeholder="Username" required><!--i can type autocomplete="off" so that,
+            it doesnt show me , the names i have entered before in my device in form of a dropdown-->
+            <!--this required confirms that user enters smthn, if the user didnt then it will say fill out his field,
+            the user will not be redirected to any page if he doesnt fill anything-->
+            <br><br>
+            <label>Password:</label>
+            <input type="text" name="pass" placeholder="xxxxxxxxx" required>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,41 +1,26 @@
-# database.py
-import sqlite3
-
-DB_NAME = "sih.db"
+# db.py - HAND THIS TO ME pls
 
 def init_db():
-    """Runs once when the app starts to set up the tables using her SQL rules."""
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    
-    # She writes the SQL schema string here, right in the triple quotes
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE,
-            email TEXT
-        )
-    """)
-    conn.commit()
-    conn.close()
+    # code here to create tables if they don't exist.
+    pass
 
-def add_user(username, email):
-    """Call this function whenever a new user registers on the website."""
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    #INSERT and SELECT code here inside the helper functions
-    cursor.execute("INSERT INTO users (username, email) VALUES (?, ?)", (username, email))
+def register_user(username, password_hash):
     
-    conn.commit()
-    conn.close()
+    # Input: string username, string password
+    # Output: Return True if inserted successfully, False if username exists.
+    # Can Write SQL HERE
+    return True
 
-def get_all_users():
-    """Call this function when you want to display user lists on the dashboard."""
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    # here also the SELECT code of sql
-    cursor.execute("SELECT * FROM users")
-    rows = cursor.fetchall()
+def verify_user(username):
     
-    conn.close()
-    return rows
+    # Input: string username
+    # Output: Return password string if user exists, or None if user not found.
+    # Can Write SQL HERE
+    return "hashed_password_from_sql"
+
+def get_user_profile(username):
+
+    # Input: string username
+    # Output: Return a dictionary with user details (e.g., {'name': 'Shaurya', 'role': 'Admin'})
+    # Can Write SQL HERE
+    return {"username": username, "role": "Student"}

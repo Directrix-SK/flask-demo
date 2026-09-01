@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DATABASE(PASSWORDS)
+        </title>
+    </head>
+    <body>
+        <h2>REGISTERED USERS</h2>
+        {% for key, value in USERS.items() %}
+        <li><bold>{{key}}: </bold>{{value}}</li>
+        {% endfor %}
+    </body>
+</html>

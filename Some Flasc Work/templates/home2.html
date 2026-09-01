@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Home Page</title></head>
+    <body bgcolor="lavender">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p>{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1>WELCOME TO THE HOME PAGE</h1>
+        <p>Currently logged in as {{username}}</p>
+    </body>
+</html>
