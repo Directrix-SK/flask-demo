@@ -81,7 +81,7 @@ def dashboard():
         user_milestones = db.get_user_milestones(session["username"])
         conn.close()
         return render_template(
-            "dashboard.html", 
+            "mydashboard.html", 
             username=session["username"], 
             role=session["role"],
             milestones=user_milestones
