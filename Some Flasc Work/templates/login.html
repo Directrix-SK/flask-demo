@@ -16,13 +16,13 @@
         {% endwith %}
         <form action="/login" method="POST">
             <label>Username:</label>
-            <input type="text" name = "username" placeholder="Username" required><!--i can type autocomplete="off" so that,
+            <input type="text" name = "username" placeholder="Username" required autocomplete="off"><!--i can type autocomplete="off" so that,
             it doesnt show me , the names i have entered before in my device in form of a dropdown-->
             <!--this required confirms that user enters smthn, if the user didnt then it will say fill out his field,
             the user will not be redirected to any page if he doesnt fill anything-->
             <br><br>
             <label>Password:</label>
-            <input type="text" name="pass" placeholder="xxxxxxxxx" required>
+            <input type="text" name="password" placeholder="xxxxxxxxx" required>
             <br><br>
             <button type="submit">Submit</button>
         </form>

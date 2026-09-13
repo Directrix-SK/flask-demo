@@ -1,19 +1,10 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 from datetime import timedelta
-import os
-import json
 
 app = Flask(__name__)
 app.secret_key = "KAUSHIKSHAURYA"
 app.permanent_session_lifetime = timedelta(days=5)
-
-
-FILE_PATH = "users.json"
-if os.path.exists(FILE_PATH):
-    with open(FILE_PATH, "r") as f:
-        USERS = json.load(f)
-else:
-    USERS = {"dtu_lead": "sih2026"}  # Default user
+USERS = {"dtu_lead": "sih2026"}  # Default user
 
 
 @app.route("/")
@@ -61,7 +52,15 @@ def admin_panel():
         return "<h3>Access Denied! Only dtu_lead can view this page.</h3><a href='/login'>Login as Admin</a>", 403
     else:
         return render_template("database.html", USERS= USERS)
-
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("pass")
+        role = request.form.get("role")
+        
+    else:
+        render_template("registerform.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
