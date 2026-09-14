@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S.H.I.E.L.D. — Join</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="logo">S.H.I.E.L.D.</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#">Startups</a>
+        <a href="#">Problems</a>
+        <a href="#">Pilots</a>
+        <a href="#">About</a>
+      </div>
+      <a href="signup.html" class="profile" id="accountLink">Login / Sign Up</a>
+    </nav>
+
+    <main>
+      <section class="signup-header">
+        <p class="eyebrow">GOVERNMENT × INNOVATION</p>
+        <h1>Join the <span>Network</span></h1>
+        <p class="intro">Choose how you want to be a part of the change.</p>
+      </section>
+
+      <section class="role-selection">
+        <button class="role-card active" id="startupOption" type="button">
+          <span class="role-title">Startup</span>
+          <span class="role-description"
+            >Create a profile and showcase your solution, experience and
+            expertise.</span
+          >
+        </button>
+
+        <button class="role-card" id="govOption" type="button">
+          <span class="role-title">Government Employee</span>
+          <span class="role-description"
+            >Access the platform using your official government
+            credentials.</span
+          >
+        </button>
+      </section>
+
+      <section class="form-area">
+        <div id="startupSection">
+          <div id="startupSignup">
+            <div class="form-intro">
+              <p class="eyebrow">STARTUP REGISTRATION</p>
+              <h2>Create your startup profile</h2>
+              <p class="form-intro-text">
+                Tell us about your startup, your work and the solutions you
+                bring to the table.
+              </p>
+              <button type="button" class="switch-link" id="showStartupLogin">
+                Already have an account? <span>Login →</span>
+              </button>
+            </div>
+
+            <form id="startupForm" class="signup-form">
+              <div class="form-section">
+                <p class="section-label">01 — BASIC INFORMATION</p>
+
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="brand">Brand / Startup Name</label>
+                    <input
+                      type="text"
+                      id="brand"
+                      placeholder="Enter brand name"
+                      required
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="year">Year of Establishment</label>
+                    <input
+                      type="number"
+                      id="year"
+                      placeholder="e.g. 2021"
+                      min="1800"
+                      max="2026"
+                      required
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="sector">Sector</label>
+                    <input
+                      type="text"
+                      id="sector"
+                      placeholder="e.g. Healthcare, Agriculture, FinTech"
+                      required
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="experience">Experience</label>
+                    <input
+                      type="text"
+                      id="experience"
+                      placeholder="Years of relevant experience"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <p class="section-label">02 — VERIFICATION & CONTACT</p>
+
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="gst">GST Number</label>
+                    <input
+                      type="text"
+                      id="gst"
+                      placeholder="Enter GST number"
+                      required
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="email">Email ID</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="startup@example.com"
+                      required
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="contact">Contact Number</label>
+                    <input
+                      type="tel"
+                      id="contact"
+                      placeholder="+91 XXXXX XXXXX"
+                      required
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      placeholder="Create a password"
+                      required
+                    />
+                  </div>
+
+                  <div class="field full-width">
+                    <label for="address">Address</label>
+                    <input
+                      type="text"
+                      id="address"
+                      placeholder="Registered business address"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <p class="section-label">03 — ABOUT THE STARTUP</p>
+
+                <div class="field">
+                  <label for="description">Tell us about your startup</label>
+                  <textarea
+                    id="description"
+                    placeholder="Describe your startup, solutions, technologies, previous work and anything else you would like government departments to know."
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <p class="section-label">04 — SUPPORTING MATERIAL</p>
+
+                <div class="upload-grid">
+                  <div class="upload-box">
+                    <label for="logo"
+                      >Startup Logo <span>(Optional)</span></label
+                    >
+
+                    <div class="upload-area">
+                      <p>＋</p>
+                      <strong>Upload Logo</strong>
+                      <small>PNG, JPG or SVG</small>
+                      <input
+                        type="file"
+                        id="logo"
+                        accept="image/png,image/jpeg,image/svg+xml"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="upload-box">
+                    <label for="startupImage"
+                      >Startup Image <span>(Optional)</span></label
+                    >
+
+                    <div class="upload-area">
+                      <p>＋</p>
+                      <strong>Upload Image</strong>
+                      <small>PNG or JPG</small>
+                      <input
+                        type="file"
+                        id="startupImage"
+                        accept="image/png,image/jpeg"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="upload-box">
+                  <label for="documents"
+                    >Additional Documents / Material
+                    <span>(Optional)</span></label
+                  >
+
+                  <div class="upload-area wide">
+                    <p>＋</p>
+                    <strong>Add Files</strong>
+                    <small
+                      >Images, PDFs, presentations, documents and other
+                      supporting material</small
+                    >
+                    <input
+                      type="file"
+                      id="documents"
+                      multiple
+                      accept="image/*,.pdf,.doc,.docx,.ppt,.pptx"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="submit-area">
+                <p>
+                  By submitting, your startup profile will be sent for
+                  verification.
+                </p>
+                <button type="submit" class="submit-btn">
+                  Submit for Verification →
+                </button>
+              </div>
+            </form>
+          </div>
+          <div id="startupLogin" class="startup-login">
+            <div class="login-intro">
+              <p class="eyebrow">STARTUP ACCESS</p>
+              <h2>Welcome back.</h2>
+              <p>
+                Login to manage your startup profile and connect with government
+                opportunities.
+              </p>
+            </div>
+
+            <form class="login-form">
+              <div class="field">
+                <label for="loginName">Name</label>
+                <input
+                  type="text"
+                  id="loginName"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="loginEmail">Email ID</label>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  placeholder="startup@example.com"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Login to S.H.I.E.L.D. →
+              </button>
+
+              <button type="button" class="back-link" id="showStartupSignup">
+                ← Create a new startup profile
+              </button>
+            </form>
+          </div>
+        </div>
+        <div id="govSection" class="gov-login">
+          <div class="gov-heading">
+            <p class="eyebrow">GOVERNMENT ACCESS</p>
+            <h2>Government Employee Login</h2>
+            <p>
+              Use your official government identification to access S.H.I.E.L.D.
+            </p>
+          </div>
+
+          <form class="login-form government-form">
+            <div class="field">
+              <label for="govName">Employee Name</label>
+              <input
+                type="text"
+                id="govName"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="govId">Government User ID</label>
+              <input
+                type="text"
+                id="govId"
+                placeholder="Enter official government ID"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="govDepartment">Department / Ministry</label>
+              <input
+                type="text"
+                id="govDepartment"
+                placeholder="Enter your department"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="govPassword">Password / Access Key</label>
+              <input
+                type="password"
+                id="govPassword"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Login to S.H.I.E.L.D. →
+            </button>
+
+            <p class="verification-note">
+              Government accounts are verified through official credentials.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-logo">S.H.I.E.L.D.</div>
+      <p class="made-by">MADE BY</p>
+
+      <div class="team">
+        <div class="team-column">
+          <p>Riddhima Gupta</p>
+          <p>Navya Maheshwari</p>
+          <p>Sampada Snehi</p>
+        </div>
+
+        <div class="team-column">
+          <p>Ruhaan Nagpal</p>
+          <p>Sarthak Tomar</p>
+          <p>Shaurya Kaushik</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+  const startupOption = document.getElementById("startupOption");
+  const govOption = document.getElementById("govOption");
+  const startupSection = document.getElementById("startupSection");
+  const govSection = document.getElementById("govSection");
+  const startupSignup = document.getElementById("startupSignup");
+  const startupLogin = document.getElementById("startupLogin");
+  const showStartupLogin = document.getElementById("showStartupLogin");
+  const showStartupSignup = document.getElementById("showStartupSignup");
+
+  function showStartup() {
+    startupOption.classList.add("active");
+    govOption.classList.remove("active");
+    startupSection.style.display = "block";
+    govSection.style.display = "none";
+    startupSignup.style.display = "block";
+    startupLogin.style.display = "none";
+  }
+
+  function showGovernment() {
+    govOption.classList.add("active");
+    startupOption.classList.remove("active");
+    startupSection.style.display = "none";
+    govSection.style.display = "block";
+  }
+
+  startupOption.addEventListener("click", showStartup);
+  govOption.addEventListener("click", showGovernment);
+
+  showStartupLogin.addEventListener("click", function () {
+    startupSignup.style.display = "none";
+    startupLogin.style.display = "block";
+  });
+
+  showStartupSignup.addEventListener("click", function () {
+    startupLogin.style.display = "none";
+    startupSignup.style.display = "block";
+  });
+
+  document.getElementById("startupForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const profile = {
+      role: "startup",
+      brand: document.getElementById("brand").value,
+      year: document.getElementById("year").value,
+      sector: document.getElementById("sector").value,
+      experience: document.getElementById("experience").value,
+      gst: document.getElementById("gst").value,
+      email: document.getElementById("email").value,
+      contact: document.getElementById("contact").value,
+      password: document.getElementById("password").value,
+      address: document.getElementById("address").value,
+      description: document.getElementById("description").value,
+      logo: document.getElementById("logo").files[0]?.name || "",
+      startupImage: document.getElementById("startupImage").files[0]?.name || "",
+      documents: Array.from(document.getElementById("documents").files).map(file => file.name)
+    };
+
+    localStorage.setItem("shieldStartupProfile", JSON.stringify(profile));
+    localStorage.setItem("shieldCurrentUser", JSON.stringify({
+      role: "startup",
+      name: profile.brand,
+      email: profile.email
+    }));
+
+    window.location.href = "dashboard.html";
+  });
+
+  document.querySelector("#startupLogin form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const saved = JSON.parse(localStorage.getItem("shieldStartupProfile"));
+
+    const name = document.getElementById("loginName").value;
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    if (saved && saved.email === email && saved.password === password) {
+      localStorage.setItem("shieldCurrentUser", JSON.stringify({
+        role: "startup",
+        name: saved.brand || name,
+        email: saved.email
+      }));
+      window.location.href = "dashboard.html";
+      return;
+    }
+
+    alert("No matching startup account was found. Please check your email and password, or create a profile first.");
+  });
+
+  document.querySelector("#govSection form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const govProfile = {
+      role: "government",
+      name: document.getElementById("govName").value,
+      userId: document.getElementById("govId").value,
+      department: document.getElementById("govDepartment").value,
+      password: document.getElementById("govPassword").value
+    };
+
+    localStorage.setItem("shieldGovernmentProfile", JSON.stringify(govProfile));
+    localStorage.setItem("shieldCurrentUser", JSON.stringify({
+      role: "government",
+      name: govProfile.name,
+      email: govProfile.userId
+    }));
+
+    window.location.href = "dashboard.html";
+  });
+
+  const accountLink = document.getElementById("accountLink");
+  const currentUser = JSON.parse(localStorage.getItem("shieldCurrentUser"));
+
+  if (currentUser) {
+    accountLink.textContent = "Profile";
+    accountLink.href = "dashboard.html";
+  }
+</script>
+  </body>
+</html>

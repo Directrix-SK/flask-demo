@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S.H.I.E.L.D. — Post a Problem</title>
+    <link rel="stylesheet" href="problems.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="logo">S.H.I.E.L.D.</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#">Startups</a>
+        <a href="problems.html">Problems</a>
+        <a href="#">Pilots</a>
+        <a href="#">About</a>
+      </div>
+      <a href="signup.html" class="profile" id="accountLink">Login / Sign Up</a>
+    </nav>
+    <main>
+      <section class="page-header">
+        <p class="eyebrow">GOVERNMENT × INNOVATION</p>
+        <h1>Post a <span>Problem</span></h1>
+        <p class="intro">
+          Tell us about the challenge your department is facing. Startups will
+          help turn the problem into a solution.
+        </p>
+      </section>
+      <section class="problem-wrapper">
+        <div class="form-heading">
+          <p class="eyebrow">PROBLEM SUBMISSION</p>
+          <h2>Tell us what needs solving.</h2>
+          <p>
+            Don't worry about creating a formal problem statement. Simply
+            explain the situation, what you need and what kind of solution you
+            are looking for.
+          </p>
+        </div>
+        <form class="problem-form">
+          <div class="form-section">
+            <p class="section-label">01 — DEPARTMENT INFORMATION</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="department">Department / Ministry</label>
+                <input
+                  type="text"
+                  id="department"
+                  placeholder="Enter your department or ministry"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="title">Problem Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  placeholder="Give the problem a short title"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <p class="section-label">02 — THE PROBLEM</p>
+            <div class="field">
+              <label for="problem">Problem Statement</label>
+              <span class="field-help"
+                >Describe the problem your department is currently facing in
+                your own words.</span
+              >
+              <textarea
+                id="problem"
+                class="large-textarea"
+                placeholder="What is happening? Who is affected? What makes this difficult? You can explain the problem without worrying about technical language."
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-section">
+            <p class="section-label">03 — WHAT ARE YOU LOOKING FOR?</p>
+            <div class="field">
+              <label for="solution">Expected Solution</label>
+              <span class="field-help"
+                >Tell startups what you would ideally like the solution to
+                achieve.</span
+              >
+              <textarea
+                id="solution"
+                class="large-textarea"
+                placeholder="Describe the outcome you are looking for, the requirements you have, or what you would like a solution to accomplish."
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-section">
+            <p class="section-label">04 — SECTOR & BUDGET</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="sector">Sector</label>
+                <input
+                  type="text"
+                  id="sector"
+                  placeholder="e.g. Agriculture, Healthcare, Technology"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="budget">Approximate Budget</label>
+                <input
+                  type="text"
+                  id="budget"
+                  placeholder="e.g. ₹5,00,000"
+                  required
+                />
+              </div>
+            </div>
+            <p class="budget-note">
+              Enter the approximate amount your department is planning to
+              allocate for developing or implementing the solution.
+            </p>
+          </div>
+          <div class="form-section">
+            <p class="section-label">05 — SUPPORTING MATERIAL</p>
+            <div class="upload-box">
+              <label for="documents"
+                >Additional Information <span>(Optional)</span></label
+              >
+              <div class="upload-area">
+                <p>＋</p>
+                <strong>Add Files</strong>
+                <small
+                  >Images, PDFs, documents, reports or other material that may
+                  help startups understand the problem</small
+                >
+                <input
+                  type="file"
+                  id="documents"
+                  multiple
+                  accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="submit-area">
+            <div>
+              <p class="submit-title">Ready to put the problem forward?</p>
+              <p class="submit-text">
+                Your submission will be visible to verified startups on
+                S.H.I.E.L.D.
+              </p>
+            </div>
+            <button type="submit" class="submit-btn">Post Problem →</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-left">
+        <div class="footer-logo">S.H.I.E.L.D.</div>
+        <p>CONNECTING GOVERNMENT PROBLEMS WITH INNOVATIVE SOLUTIONS.</p>
+      </div>
+      <div class="footer-right">
+        <p class="made-by">MADE BY</p>
+        <div class="team">
+          <div class="team-column">
+            <p>Riddhima Gupta</p>
+            <p>Navya Maheshwari</p>
+            <p>Sampada Snehi</p>
+          </div>
+          <div class="team-column">
+            <p>Ruhaan Nagpal</p>
+            <p>Sarthak Tomar</p>
+            <p>Shaurya Kaushik</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script>
+  const accountLink = document.getElementById("accountLink");
+  const currentUser = JSON.parse(localStorage.getItem("shieldCurrentUser"));
+
+  if (currentUser) {
+    accountLink.textContent = "Profile";
+    accountLink.href = "dashboard.html";
+  }
+
+  document.querySelector(".problem-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const current = JSON.parse(localStorage.getItem("shieldCurrentUser"));
+
+    if (!current || current.role !== "government") {
+      alert("Please log in as a government employee before posting a problem.");
+      window.location.href = "signup.html";
+      return;
+    }
+
+    const problem = {
+      department: document.getElementById("department").value,
+      title: document.getElementById("title").value,
+      statement: document.getElementById("problem").value,
+      solution: document.getElementById("solution").value,
+      sector: document.getElementById("sector").value,
+      budget: document.getElementById("budget").value,
+      files: Array.from(document.getElementById("documents").files).map(file => file.name)
+    };
+
+    const existing = JSON.parse(localStorage.getItem("shieldProblems") || "[]");
+    existing.push(problem);
+    localStorage.setItem("shieldProblems", JSON.stringify(existing));
+
+    alert("Problem posted successfully.");
+    this.reset();
+  });
+</script>
+</body>
+</html>

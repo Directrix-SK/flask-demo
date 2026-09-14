@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.H.I.E.L.D. — Profile</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">S.H.I.E.L.D.</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#">Startups</a>
+      <a href="problemstatement.html">Problems</a>
+      <a href="#">Pilots</a>
+      <a href="#profile">Profile</a>
+    </div>
+
+    <button class="logout" id="logoutBtn">Log Out</button>
+  </nav>
+
+  <main id="profile">
+    <section class="dashboard-header">
+      <div>
+        <p class="eyebrow" id="roleLabel">YOUR PROFILE</p>
+        <h1>Welcome, <span id="profileName">there.</span></h1>
+        <p class="intro" id="profileIntro">
+          Your S.H.I.E.L.D. profile and account information.
+        </p>
+      </div>
+      <div class="profile-mark">S.H.I.E.L.D.</div>
+    </section>
+
+    <section class="dashboard-content">
+      <div id="startupDashboard" class="dashboard-panel">
+        <div class="panel-top">
+          <div>
+            <p class="eyebrow">STARTUP PROFILE</p>
+            <h2 id="startupBrand">Startup</h2>
+          </div>
+          <span class="status">VERIFICATION PENDING</span>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span>Year of Establishment</span>
+            <strong id="startupYear">—</strong>
+          </div>
+          <div class="info-item">
+            <span>Sector</span>
+            <strong id="startupSector">—</strong>
+          </div>
+          <div class="info-item">
+            <span>Experience</span>
+            <strong id="startupExperience">—</strong>
+          </div>
+          <div class="info-item">
+            <span>GST Number</span>
+            <strong id="startupGST">—</strong>
+          </div>
+          <div class="info-item">
+            <span>Email ID</span>
+            <strong id="startupEmail">—</strong>
+          </div>
+          <div class="info-item">
+            <span>Contact Number</span>
+            <strong id="startupContact">—</strong>
+          </div>
+          <div class="info-item wide">
+            <span>Registered Address</span>
+            <strong id="startupAddress">—</strong>
+          </div>
+        </div>
+
+        <div class="description-box">
+          <p class="eyebrow">ABOUT THE STARTUP</p>
+          <p id="startupDescription">No description added.</p>
+        </div>
+
+        <div class="materials-box">
+          <p class="eyebrow">SUPPORTING MATERIAL</p>
+          <div id="startupFiles" class="file-list">
+            <span>No files uploaded.</span>
+          </div>
+        </div>
+
+        <div class="dashboard-actions">
+          <a href="#" class="dashboard-btn">Explore Problems →</a>
+          <a href="#" class="dashboard-link">Edit Profile</a>
+        </div>
+      </div>
+      <div id="governmentDashboard" class="dashboard-panel">
+        <div class="panel-top">
+          <div>
+            <p class="eyebrow">GOVERNMENT EMPLOYEE</p>
+            <h2 id="govNameDisplay">Government Employee</h2>
+          </div>
+          <span class="status verified">OFFICIAL ACCESS</span>
+        </div>
+
+        <div class="info-grid government-grid">
+          <div class="info-item">
+            <span>Employee Name</span>
+            <strong id="govName">—</strong>
+          </div>
+          <div class="info-item">
+            <span>Government User ID</span>
+            <strong id="govUserId">—</strong>
+          </div>
+          <div class="info-item wide">
+            <span>Department / Ministry</span>
+            <strong id="govDepartment">—</strong>
+          </div>
+        </div>
+
+        <div class="government-message">
+          <p class="eyebrow">YOUR ROLE ON S.H.I.E.L.D.</p>
+          <h3>Turn real problems into opportunities for innovation.</h3>
+          <p>
+            Post challenges faced by your department, describe what you need,
+            and let verified startups propose solutions.
+          </p>
+        </div>
+
+        <div class="dashboard-actions">
+          <a href="problemstatement.html" class="dashboard-btn">Post a Problem →</a>
+          <a href="#" class="dashboard-link">View My Problems</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">S.H.I.E.L.D.</div>
+
+    <div>
+      <p class="made-by">MADE BY</p>
+      <div class="team">
+        <div class="team-column">
+          <p>Riddhima Gupta</p>
+          <p>Navya Maheshwari</p>
+          <p>Sampada Snehi</p>
+        </div>
+        <div class="team-column">
+          <p>Ruhaan Nagpal</p>
+          <p>Sarthak Tomar</p>
+          <p>Shaurya Kaushik</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const currentUser = JSON.parse(localStorage.getItem("shieldCurrentUser"));
+    const startupDashboard = document.getElementById("startupDashboard");
+    const governmentDashboard = document.getElementById("governmentDashboard");
+
+    if (!currentUser) {
+      window.location.href = "signup.html";
+    }
+
+    if (currentUser.role === "startup") {
+      const profile = JSON.parse(localStorage.getItem("shieldStartupProfile"));
+
+      document.getElementById("roleLabel").textContent = "STARTUP PROFILE";
+      document.getElementById("profileName").textContent = profile.brand;
+      document.getElementById("profileIntro").textContent = "Your startup information, experience and supporting material in one place.";
+      document.getElementById("startupBrand").textContent = profile.brand;
+      document.getElementById("startupYear").textContent = profile.year || "—";
+      document.getElementById("startupSector").textContent = profile.sector || "—";
+      document.getElementById("startupExperience").textContent = profile.experience || "—";
+      document.getElementById("startupGST").textContent = profile.gst || "—";
+      document.getElementById("startupEmail").textContent = profile.email || "—";
+      document.getElementById("startupContact").textContent = profile.contact || "—";
+      document.getElementById("startupAddress").textContent = profile.address || "—";
+      document.getElementById("startupDescription").textContent = profile.description || "No description added.";
+
+      const files = [];
+      if (profile.logo) files.push("Logo: " + profile.logo);
+      if (profile.startupImage) files.push("Image: " + profile.startupImage);
+      if (profile.documents) {
+        profile.documents.forEach(function(file) {
+          files.push(file);
+        });
+      }
+
+      const fileList = document.getElementById("startupFiles");
+      fileList.innerHTML = "";
+
+      if (files.length > 0) {
+        files.forEach(function(file) {
+          const item = document.createElement("span");
+          item.textContent = file;
+          fileList.appendChild(item);
+        });
+      } else {
+        fileList.innerHTML = "<span>No files uploaded.</span>";
+      }
+
+      startupDashboard.style.display = "block";
+    }
+
+    if (currentUser.role === "government") {
+      const profile = JSON.parse(localStorage.getItem("shieldGovernmentProfile"));
+
+      document.getElementById("roleLabel").textContent = "GOVERNMENT ACCESS";
+      document.getElementById("profileName").textContent = profile.name;
+      document.getElementById("profileIntro").textContent = "Your official S.H.I.E.L.D. access and department information.";
+      document.getElementById("govNameDisplay").textContent = profile.name;
+      document.getElementById("govName").textContent = profile.name;
+      document.getElementById("govUserId").textContent = profile.userId;
+      document.getElementById("govDepartment").textContent = profile.department;
+
+      governmentDashboard.style.display = "block";
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      localStorage.removeItem("shieldCurrentUser");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
